@@ -13,7 +13,7 @@ function App() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/history");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/history`);
       setEvents(res.data.reverse());
     } catch (err) {
       console.error("Error fetching history", err);
@@ -25,7 +25,7 @@ function App() {
     try {
       setLoading(true);
       await axios.post(
-        "http://localhost:8080/api/generate-event",
+  "http://localhost:8080/api/generate-event",
         JSON.stringify(prompt),
         { headers: { "Content-Type": "application/json" } }
       );
