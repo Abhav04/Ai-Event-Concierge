@@ -25,7 +25,7 @@ function App() {
     try {
       setLoading(true);
       await axios.post(
-  "http://localhost:8080/api/generate-event",
+  `${process.env.REACT_APP_API_URL}/api/generate-event`,
         JSON.stringify(prompt),
         { headers: { "Content-Type": "application/json" } }
       );
